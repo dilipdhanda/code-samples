@@ -29,7 +29,7 @@ public class RepeatedWords_fromFile {
         }
     }
     public static void main(String[] args) {
-        String filePath = "file.txt";
+        String filePath = "src/main/resources/file.txt";
         findRepeatedWords(filePath);
     }
 }
