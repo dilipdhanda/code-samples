@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Map;
 
   /*
 curl -X POST http://localhost:8080/api/labels/printshipment -H "Access-Key: 67E35A45A35108BD201120805697AE55AD327AEF"
@@ -30,7 +29,7 @@ public class TestController {
     }
 
     // Read response.json from classpath
-    ClassPathResource resource = new ClassPathResource("sekoResponsePDF.json");
+    ClassPathResource resource = new ClassPathResource("sekoResponseLABEL_PDF_100X175.json");
     String json = StreamUtils.copyToString(resource.getInputStream(), StandardCharsets.UTF_8);
 
     return ResponseEntity.ok()
