@@ -1,0 +1,110 @@
+{
+  "DeliveryReference": "OrderNumber123",
+  "Reference2": "RMA1234",
+  "Reference3": "",
+  "RPSProcessing": "true",
+  "Origin": {
+    "Address": {
+      "BuildingName": "NA",
+      "StreetAddress": "155 SNOW BLVD",
+      "Suburb": "Concord",
+      "City": "Ontario",
+      "PostCode": "L4K 4N9",
+      "CountryCode": "CA"
+    },
+    "Name": "Destination Person",
+    "ContactPerson": "Destination person",
+    "PhoneNumber": "0411375332",
+    "Email": "test@destinationcomp.com"
+  },
+  "Destination": {
+    "Address": {
+      "BuildingName": "NA",
+      "StreetAddress": "155 SNOW BLVD",
+      "Suburb": "Concord",
+      "City": "Ontario",
+      "PostCode": "L4K 4N9",
+      "CountryCode": "CA"
+    },
+    "Id": 1,
+    "Name": "RETURNS – retailer name",
+    "ContactPerson": " JOHN SMITH",
+    "PhoneNumber": "1800 951 411",
+    "Email": " destinationemail@test.com",
+    "DeliveryInstructions": "",
+    "CostCentreName": " mysite.com"
+  },
+  "Commodities": [
+    {
+      "Description": "Leave With Me Dress In Navy Fl",
+      "Units": "1",
+      "UnitValue": "62.95",
+      "UnitKg": "0.1",
+      "Country": null,
+      "Currency": "AUD",
+      "ItemNo": "1212121",
+      "SKU": "ST1306B-white",
+      "Reason": "Too Big",
+      "CommodityCode": "HS456"
+    },
+    {
+      "Description": "All Shook Up Dress in Black",
+      "Units": "1",
+      "UnitValue": "59.46",
+      "UnitKg": "0.1",
+      "Country": null,
+      "Currency": "AUD",
+      "ItemNo": "13131313",
+      "SKU": "W79361-white",
+      "Reason": "Not as Pictured",
+      "CommodityCode": "HS456"
+    },
+    {
+      "Description": "Miss Independent dress in bla",
+      "Units": "1",
+      "UnitValue": "42.45",
+      "UnitKg": "0.1",
+      "Country": null,
+      "Currency": "AUD",
+      "ItemNo": "1231232",
+      "SKU": "W79361-black",
+      "Reason": "Not as Pictured",
+      "CommodityCode": "HS456"
+    },
+    {
+      "Description": "Leave With Me Dress In Navy Fl",
+      "Units": "1",
+      "UnitValue": "62.95",
+      "UnitKg": "0.1",
+      "Country": null,
+      "Currency": "AUD",
+      "ItemNo": "1212121",
+      "SKU": "ST1306B-white",
+      "Reason": "Too Big",
+      "ReturnAction": "Refund",
+      "CommodityCode": "13fdaf"
+    }
+  ],
+  "Packages": [
+    {
+      "Name": "Leave With Me Dress In Navy Fl",
+      "Id": "173646",
+      "Height": "0.1",
+      "Width": "0.1",
+      "Kg": "0.1",
+      "Length": "70",
+      "Type": "Box"
+    }
+  ],
+  "issignaturerequired": false,
+  "PrintToPrinter": false,
+  "CarrierLogo": true,
+  "Outputs": [
+    "LABEL_PDF_100X150"
+  ],
+  "SendTrackingEmail": false,
+  "ShipType": "INBOUND",
+  "SendLabel": "Y",
+  "Service": "",
+  "Carrier": ""
+}
