@@ -1,0 +1,94 @@
+{
+  "purchaseOrderNumber": "108911438523142",
+  "carrierAccountId": "lobo_usps_ca_239466fc2a5941e7adfbed1e3fe9709c",
+  "carrierMethodId": "161",
+  "shipDate": "2024-06-22T19:32:39.6519281+00:00",
+  "fromAddress": {
+    "name": "Robert Hoffman",
+    "address1": "Av. Capitán Carlos León",
+    "address2": "ab",
+    "address3": "cd",
+    "sublocality": "",
+    "locality": "",
+    "city": "Ciudad de México",
+    "state": "DISTRITO FEDERAL",
+    "zip": "15620",
+    "countryCode": "MX",
+    "phone": "+56 987654321",
+    "isResidential": "",
+    "Email": "test@test.com"
+  },
+  "toAddress": {
+    "name": "Walmart FC",
+    "company": "Walmart.com",
+    "address1": "30801 W 191ST ST",
+    "sublocality": "",
+    "locality": "",
+    "address2": null,
+    "city": "EDGERTON",
+    "state": "KS",
+    "zip": "66021",
+    "countryCode": "US",
+    "phone": "844-538-2255",
+    "Email": "destinationemail@test.com"
+  },
+  "fulfillments": {
+    "fulfillmentLines": [
+      {
+        "description": "Cadena 14 quilates, el mejor",
+        "quantity": 5,
+        "valuePerUnit": 148.72,
+        "weightPerUnitOz": "0.1",
+        "originCountry": "US",
+        "currency": "USD",
+        "SKU": "ST1306B-white",
+        "Reason": "Too Big",
+        "ReturnAction": "REFUND",
+        "HsCode": "HS456",
+        "offerID": "F5B7EC6A2B4B337EB22A352895FBC54F",
+        "fulfillmentLine": 1,
+        "hazmatInfo": {
+          "dotIdNbr": "NA",
+          "dotHazardousClass": "ORM-D",
+          "pkgInstruction": "Package ABC Instructions"
+        }
+      },
+      {
+        "description": "Cadena cubana de oro de 14 quilates, el mejor",
+        "quantity": 5,
+        "valuePerUnit": 148.72,
+        "weightPerUnitOz": "0.1",
+        "originCountry": "US",
+        "SKU": "ST1306B-white",
+        "Reason": "Too Big",
+        "HsCode": "HS456",
+        "ReturnAction": "REFUND",
+        "currency": "USD",
+        "offerID": "F5B7EC6A2B4B337EB22A352895FBC54F",
+        "fulfillmentLine": 2,
+        "hazmatInfo": {
+          "dotIdNbr": "NA",
+          "dotHazardousClass": "ORM-D",
+          "pkgInstruction": "Package ABC Instructions"
+        }
+      }
+    ]
+  },
+  "packageId": "55563519048768474101",
+  "packageLengthInches": 9,
+  "packageWidthInches": 4,
+  "packageHeightInches": 4,
+  "packageWeightOz": 65,
+  "isOrmd": false,
+  "return": true,
+  "isReturn": true,
+  "shipByDate": "2024-04-22T21:00:00+00:00",
+  "deliveryDate": "2024-04-25T21:59:00+00:00",
+  "labelFormat": "PDF",
+  "returnReason": "REJECTED",
+  "returnReferenceTracking": "721321357832",
+  "returnAuthorization": "170196271830120996",
+  "labelCustomizations": {
+    "returnAuthorization": "170196271830120996"
+  }
+}
