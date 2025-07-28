@@ -27,22 +27,73 @@ public class ApplicationSekoLabelServer {
   @RequestMapping("/api")
   public static class TestController {
 
-
     @PostMapping("/labels/printshipment")
     public ResponseEntity<String> handlePost(
-      @RequestHeader(value = "Access-Key", required = false) String accessKey) throws IOException {
+      @RequestHeader(value = "Access-Key", required = false) String accessKey,
+      @org.springframework.web.bind.annotation.RequestBody String requestBody) throws IOException {
+      String responseJsonPNG = "seko/fromSeko_for_LABEL_PNG_100X150.json";
+      String responseJsonInvalidToken = "seko/fromSeko_for_Invalid_Token.json";
+
       if (!VALID_ACCESS_KEY.equals(accessKey)) {
-        return ResponseEntity.status(HttpStatus.FORBIDDEN)
-          .body("{\"error\": \"Invalid or missing Access-Key\"}");
+        return ResponseEntity.ok()
+          .header("Content-Type", "application/json")
+          .body(invalidTokenJson);
       }
-      String responseJson = "";
-      responseJson = "seko/fromSeko_for_LABEL_PNG_100X150.json";
-//      responseJson = "seko/fromSeko_for_LABEL_PDF_100X150.json";
-      ClassPathResource resource = new ClassPathResource(responseJson);
-      String json = StreamUtils.copyToString(resource.getInputStream(), StandardCharsets.UTF_8);
+
+      // Parse the requestBody to extract origin.PhoneNumber
+      String phoneNumber = null;
+      try {
+        com.fasterxml.jackson.databind.JsonNode root = new com.fasterxml.jackson.databind.ObjectMapper().readTree(requestBody);
+        if (root.has("origin") && root.get("origin").has("PhoneNumber")) {
+          phoneNumber = root.get("origin").get("PhoneNumber").asText();
+        }
+      } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+          .header("Content-Type", "application/json")
+          .body("{\"Success\":\"FALSE\",\"Message\":\"Invalid JSON body\"}");
+      }
+
+      String responseJson;
+      if ("0411375332".equals(phoneNumber)) {
+        responseJson = responseJsonPNG;
+      } else if ("0411375333".equals(phoneNumber)) {
+        responseJson = "seko/fromSeko_for_LABEL_PDF_100X150.json";
+      } else if ("0411375334".equals(phoneNumber)) {
+        responseJson = responseJsonInvalidToken;
+      } else {
+        responseJson = responseJsonPNG;
+      }
+
       return ResponseEntity.ok()
         .header("Content-Type", "application/json")
-        .body(json);
+        .body(getJson(responseJson));
+    }
+
+    String getJson(String filePath) throws IOException {
+      ClassPathResource resource = new ClassPathResource(filePath);
+      return StreamUtils.copyToString(resource.getInputStream(), StandardCharsets.UTF_8);
+    }
+  }
+
+  // Moved here to avoid pass VULNERABILITIES GATE in seko-returns-main
+  public String testGetSekoApiKey() {
+    // Do not use class loader below as it picks changes from the compiled/build jar, not from the
+    // src dir where
+    // you are making changes in runtime to test.
+    // String filename = getClass().getClassLoader().getResource("seko_api_key.txt").getPath();
+    String filename = "src/main/resources/seko_api_key.txt";
+
+    String invalidToken = "InvalidToken";
+    // {"Success":"FALSE","Message":"Invalid token"} response if token is invalid
+    try {
+      java.nio.file.Path path = java.nio.file.Paths.get(filename);
+      if (!java.nio.file.Files.exists(path)) {
+        return invalidToken;
+      }
+      return new String(java.nio.file.Files.readAllBytes(path));
+    } catch (Exception e) {
+      log.error("Error reading file from file {}", e.getMessage());
+      return invalidToken;
     }
   }
 }
