@@ -34,6 +34,10 @@ public class ApplicationSekoLabelServer {
       String responseJsonPNG = "seko/fromSeko_for_LABEL_PNG_100X150.json";
       String responseJsonInvalidToken = "seko/fromSeko_for_Invalid_Token.json";
 
+      String invalidTokenJson = "{"
+              + "\"error\": \"invalid_token\","
+              + "\"message\": \"The provided token is invalid or expired.\""
+              + "}";
       if (!VALID_ACCESS_KEY.equals(accessKey)) {
         return ResponseEntity.ok()
           .header("Content-Type", "application/json")
@@ -92,7 +96,7 @@ public class ApplicationSekoLabelServer {
       }
       return new String(java.nio.file.Files.readAllBytes(path));
     } catch (Exception e) {
-      log.error("Error reading file from file {}", e.getMessage());
+      System.err.print("Error reading file from file" + e.getMessage());
       return invalidToken;
     }
   }

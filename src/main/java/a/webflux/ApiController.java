@@ -10,6 +10,10 @@ public class ApiController {
 
     private final WebClient webClient = WebClient.create("https://jsonplaceholder.typicode.com");
 
+    /*
+    To test hit http://localhost:8080/post - it will return response from
+    https://jsonplaceholder.typicode.com/posts/1
+     */
     @GetMapping("/post")
     public Mono<String> getPost() {
         return webClient.get()
