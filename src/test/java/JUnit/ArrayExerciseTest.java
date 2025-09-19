@@ -1,3 +1,5 @@
+package JUnit;
+
 import a_1_c.Test_ArrayExercise;
 import org.junit.Test;
 
