@@ -1,9 +1,10 @@
 package JUnit;
 
 import a_1_c.Test_ArrayExercise;
-import org.junit.Test;
-
-import static org.junit.Assert.assertArrayEquals;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 
 public class ArrayExerciseTest {
     Test_ArrayExercise arrayExercise = new Test_ArrayExercise();

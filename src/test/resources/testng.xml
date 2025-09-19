@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Calculator Suite">
+    <test name="Basic Tests">
+        <groups>
+            <run>
+                <include name="basic"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="TestNG.CalculatorTest"/>
+        </classes>
+    </test>
+
+    <test name="Advanced Tests">
+        <groups>
+            <run>
+                <include name="advanced"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="TestNG.CalculatorTest"/>
+        </classes>
+    </test>
+</suite>
