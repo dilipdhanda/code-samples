@@ -119,7 +119,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>3.2.2</version> <!-- Ensure same version as parent -->
                 <configuration>
-                    <mainClass>spring.PessimisticLock.ApplicationPessimisticLock</mainClass>  <!-- Change package if necessary -->
+                    <mainClass>a1.spring.PessimisticLock.ApplicationPessimisticLock</mainClass>  <!-- Change package if necessary -->
                 </configuration>
             </plugin>
         </plugins>
