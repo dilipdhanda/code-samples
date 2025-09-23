@@ -7,7 +7,7 @@
             </run>
         </groups>
         <classes>
-            <class name="TestNG.CalculatorTest"/>
+            <class name="com.TestNG.CalculatorTest"/>
         </classes>
     </test>
 
@@ -18,7 +18,7 @@
             </run>
         </groups>
         <classes>
-            <class name="TestNG.CalculatorTest"/>
+            <class name="com.TestNG.CalculatorTest"/>
         </classes>
     </test>
 </suite>
