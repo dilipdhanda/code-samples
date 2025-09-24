@@ -12,17 +12,17 @@ public class MaxSeq{
 
     public static void main(String[] args){
         ArrayList<Integer> input = new ArrayList<Integer>(Arrays.asList(1,2,5,8,8,8,5,5,5,5,9,10,13,5,5,5));
-        maxSeq(input);
-        input = new ArrayList<Integer>();
-        maxSeq(input);
+        findMaxSeq(input);
+        findMaxSeq(new ArrayList<Integer>());
+        findMaxSeq(input);
     }
-    static void maxSeq(ArrayList<Integer> input){
+
+    public static Result findMaxSeq(ArrayList<Integer> input){
         if (input.isEmpty()) {
-            System.out.println("ERROR - Input is empty");
-            return;
+            return new Result(-1, -1);
         }
         int prevStart = 0;
-        int prevEnd = 0; // made initial mistake setting it as 1
+        int prevEnd = 0;
         int currStart = 0;
         int currEnd = 0;
         int currValue = input.get(0);
@@ -39,6 +39,21 @@ public class MaxSeq{
                 currStart = i;
             }
         }
-        System.out.printf("Max Length %d, Value in that length %d\n", prevEnd - prevStart, input.get(prevStart));
+        // Check last sequence
+        currEnd = input.size();
+        if (currEnd - currStart > prevEnd - prevStart){
+            prevEnd = currEnd;
+            prevStart = currStart;
+        }
+        return new Result(prevEnd - prevStart, input.get(prevStart));
+    }
+
+    public static class Result {
+        public final int length;
+        public final int value;
+        public Result(int length, int value) {
+            this.length = length;
+            this.value = value;
+        }
     }
 }
