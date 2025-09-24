@@ -3,7 +3,7 @@ package com.others.a2.String;
 public class StringReverse {
     public static void main(String[] args) {
         String str = "a!b@c";
-        str = "com/a";
+        str = "com/curr";
         str = "ab";
         char[] charArray = str.toCharArray();
         System.out.println("Input string: " + str);

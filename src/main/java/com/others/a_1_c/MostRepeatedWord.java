@@ -45,7 +45,7 @@ public class MostRepeatedWord {
         String lowercased = input.toLowerCase().trim();
         String[] words = lowercased.split("[ \\n\\t\\r.,;:!?(){]");
 
-        List commonWords = List.of("the", "com/a", "or", "an", "it", "and",
+        List commonWords = List.of("the", "com/curr", "or", "an", "it", "and",
                 "but", "is", "are", "of", "on", "to", "was", "were", "in",
                 "that", "i", "your", "his", "their", "her", "you", "me",
                 "they", "at", "be");
