@@ -1,6 +1,6 @@
 package com.TestNG;
 
-import com.others.a1.Calculator;
+import com.c1.Calculator;
 import org.testng.Assert;
 import org.testng.annotations.*;
 

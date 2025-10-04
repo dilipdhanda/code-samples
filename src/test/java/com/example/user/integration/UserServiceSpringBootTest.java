@@ -1,7 +1,7 @@
 package com.example.user.integration;
 
-import com.example.user.User;
-import com.example.user.UserService;
+import com.c0.user.User;
+import com.c0.user.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

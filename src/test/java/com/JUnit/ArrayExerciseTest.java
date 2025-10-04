@@ -1,6 +1,6 @@
 package com.JUnit;
 
-import com.others.a_1_c.Test_ArrayExercise;
+import com.c7.a_1_c.Test_ArrayExercise;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

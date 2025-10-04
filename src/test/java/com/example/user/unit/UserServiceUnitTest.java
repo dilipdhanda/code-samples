@@ -1,8 +1,8 @@
 package com.example.user.unit;
 
-import com.example.user.User;
-import com.example.user.UserRepository;
-import com.example.user.UserService;
+import com.c0.user.User;
+import com.c0.user.UserRepository;
+import com.c0.user.UserService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
