@@ -10,8 +10,6 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import java.io.IOException;
 import java.util.List;
 
-// TODO - Add Jar
-
 public class CarObjectMapper {
 
     public static void main(String[] args) throws IOException {
@@ -28,7 +26,7 @@ public class CarObjectMapper {
         System.out.println(jsonNode.get("color"));
 
         String jsonCarArray =
-                "[{ \"color\" : \"Black\", \"type\" : \"BMW\" }, { \"color\" : \"Red\", \"type\" : \"FIAT\" }]";
+          "[{ \"color\" : \"Black\", \"type\" : \"BMW\" }, { \"color\" : \"Red\", \"type\" : \"FIAT\" }]";
         List<Car> listCar = objectMapper.readValue(jsonCarArray, new TypeReference<List<Car>>(){});
         System.out.println(listCar);
 

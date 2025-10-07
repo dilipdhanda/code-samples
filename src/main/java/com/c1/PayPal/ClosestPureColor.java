@@ -1,7 +1,7 @@
-package com.c0.PayPal;
+package com.c1.PayPal;
 
 public class ClosestPureColor {
-
+  // part of PayPal exercises
   public static String closestColor(String bits24) {
     if (bits24 == null || bits24.length() != 24 || !bits24.matches("[01]{24}"))
       throw new IllegalArgumentException("Expected 24-bit binary string");

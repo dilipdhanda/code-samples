@@ -1,7 +1,7 @@
-package com.c0.PayPal;
+package com.c1.PayPal;
 
 public final class BuildAnalogousArrays {
-
+  // part of PayPal exercises
   public static void main(String[] args) {
     int[] diffs = {-1, -3, 4};   // means s[i] - s[i+1]
     int L = 0, U = 255;
