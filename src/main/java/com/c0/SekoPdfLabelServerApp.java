@@ -15,12 +15,12 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 @SpringBootApplication
-public class ApplicationSekoPdfLabelServer {
+public class SekoPdfLabelServerApp {
 
   private static final String VALID_ACCESS_KEY = "67E35A45A35108BD201120805697AE55BDE3CBCE85AD327AEF";
 
   public static void main(String[] args) {
-    SpringApplication.run(ApplicationSekoPdfLabelServer.class, args);
+    SpringApplication.run(SekoPdfLabelServerApp.class, args);
   }
 
   @RestController

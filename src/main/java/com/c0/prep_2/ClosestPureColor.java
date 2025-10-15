@@ -1,4 +1,4 @@
-package com.c1.PayPal;
+package com.c0.prep_2;
 
 public class ClosestPureColor {
   // part of PayPal exercises

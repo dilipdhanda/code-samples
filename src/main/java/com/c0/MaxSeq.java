@@ -14,11 +14,11 @@ public class MaxSeq{
         ArrayList<Integer> input = new ArrayList<Integer>(Arrays.asList(1,2,5,8,8,8,5,5,5,5,9,10,13,5,5,5));
         findMaxSeq(input);
         findMaxSeq(new ArrayList<Integer>());
-        findMaxSeq(input);
     }
 
     public static Result findMaxSeq(ArrayList<Integer> input){
         if (input.isEmpty()) {
+            System.out.println("Error - Input list is empty");
             return new Result(-1, -1);
         }
         int prevStart = 0;
@@ -45,7 +45,9 @@ public class MaxSeq{
             prevEnd = currEnd;
             prevStart = currStart;
         }
-        return new Result(prevEnd - prevStart, input.get(prevStart));
+        Result res = new Result(prevEnd - prevStart, input.get(prevStart));
+        System.out.println("Length: " + res.length + ", Value: " + res.value);
+        return res;
     }
 
     public static class Result {

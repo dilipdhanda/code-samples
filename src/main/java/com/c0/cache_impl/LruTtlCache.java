@@ -1,4 +1,4 @@
-package com.c0.cache;
+package com.c0.cache_impl;
 
 import java.time.Duration;
 import java.util.Objects;

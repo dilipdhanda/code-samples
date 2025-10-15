@@ -1,10 +1,10 @@
-package com.c0.data_structs;
+package com.c0.comparable_comparator;
 
 import java.util.Comparator;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-public class _TreeMap_Comparator {
+public class TreeMap_Comparator {
     public static void main(String[] args) {
         // TreeMap with keys sorted by ignoring case
         // SortedMap<String, String> fileExtensions = new TreeMap<>(String.CASE_INSENSITIVE_ORDER); // short form
