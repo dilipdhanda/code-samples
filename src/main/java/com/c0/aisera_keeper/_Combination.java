@@ -9,9 +9,9 @@ Complexity O(C(n, r)) = n! / (r! × (n−r)!)
 public class _Combination {
   public static void main(String[] args) {
 //    System.out.println(getIntCombinations(new int[]{6, 7, 8}, 2));
-    System.out.println(getTargetSumCombinations(new int[]{3, 2, 5, 2, 10, 7}, 2, 9));
+//    System.out.println(getTargetSumCombinations(new int[]{3, 2, 5, 2, 10, 7}, 2, 9));
 //    System.out.println(getTargetSumCombinations(new int[]{3, 2, 6, 2, 10, 7}, 2, 9));
-    System.out.println(getTargetSumCombinationsAnySize(new int[]{3, 2, 6, 2, 10, 7}, 9));
+    System.out.println(getTargetSumCombinationsAnySize(new int[]{3, 2, 1, 1, 6, 10, 7}, 9));
   }
 
   // Generate combinations of length 'r' from the array 'nums'
@@ -94,10 +94,14 @@ public class _Combination {
         else if(remain == 0) solutions.add(new ArrayList<>(tempList)); // FOUND SOLUTION - deep copy as tempList has a solution
      */
     int currSum = currCombination.stream().mapToInt(Integer::intValue).sum();
-    if (currSum > targetSum || currSum < 0) { // greater than targetSum or negative, means no point in continuing this path
+    if (currSum > targetSum || targetSum - currSum < 0) { // greater than targetSum or negative, means no point in continuing this path
       return; // backtrack
-    } else {
+    }
+    if (currSum == targetSum) {
+      // don't add / infer this condition in above if, be careful, logic changes, check why?
+      // as we need to return in equal case also to backtrack
       resultList.add(new ArrayList<>(currCombination));
+      return; // return in equal case also
     }
     // currSum < targetSum, so solution STILL POSSIBLE, so continue this path
     // Iterate from 'start' index to end — ensures no duplicates and preserves combination order
