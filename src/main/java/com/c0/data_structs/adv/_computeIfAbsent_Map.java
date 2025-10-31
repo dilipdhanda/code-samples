@@ -1,16 +1,26 @@
 package com.c0.data_structs.adv;
 
+import java.util.HashMap;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-class computeIfAbsent {
+class _computeIfAbsent_Map {
   public static void main(String[] args) throws Exception {
+    HashMap<String, String> capitalCities = new HashMap<String, String>();
+    capitalCities.put("England", "London");
+    capitalCities.put("Germany", "Berlin");
+    capitalCities.put("Norway", "Oslo");
+    capitalCities.put("USA", "Washington DC");
+    capitalCities.computeIfAbsent("Canada", (k) -> "Toronto (" + k + ")");
+
+    System.out.println(capitalCities);
+
     int threads = 16;
-    new computeIfAbsent().demoNaivePut(threads);
-    new computeIfAbsent().demoPutIfAbsent(threads);
-    new computeIfAbsent().demoComputeIfAbsent(threads);
+    new _computeIfAbsent_Map().demoNaivePut(threads);
+    new _computeIfAbsent_Map().demoPutIfAbsent(threads);
+    new _computeIfAbsent_Map().demoComputeIfAbsent(threads);
   }
 
   class Expensive {

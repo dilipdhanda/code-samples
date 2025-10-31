@@ -13,11 +13,37 @@ import java.util.concurrent.locks.ReentrantLock;
  *  - Thread-safe using ReentrantLock
  *  - Optional TTL expiration (lazy cleanup)
  *  - Capacity enforcement with LRU eviction
+
+ Why two PriorityQueues isn’t great:
+ - Java’s PriorityQueue doesn’t support decrease-key or efficient priority updates. Every get() must
+   update “recency,” which means reheapifying.
+ - Removing/adjusting an arbitrary element in a heap is O(n) unless you do “lazy deletion” (keep duplicates and
+    ignore stale ones later).
+ - Two heaps (one “newest”, one “oldest”) don’t buy you consistency—keeping them synchronized is harder than it sounds.
+
  */
 public final class LRUCache_w_HashMap_Doubly_Linked_List<K, V> {
 
+  private final int capacity;
+  private final Map<K, Node<K, V>> map;
+  private final ReentrantLock lock = new ReentrantLock();
+
+  // Create doubly linked list with Sentinel nodes (just markers, no data, to keep code readable
+  // and reducing/simplifying null/boundary error
+  private final Node<K, V> head = new Node<>(null, null, NO_EXPIRY);
+  private final Node<K, V> tail = new Node<>(null, null, NO_EXPIRY);
+
+  public LRUCache_w_HashMap_Doubly_Linked_List(int capacity) {
+    if (capacity < 0) throw new IllegalArgumentException("capacity must be >= 0");
+    this.capacity = capacity;
+    this.map = new HashMap<>(Math.max(16, capacity * 2));
+    head.next = tail;
+    tail.prev = head;
+  }
+
   private static final long NO_EXPIRY = Long.MAX_VALUE;
 
+  // Doubly Linked List
   private static final class Node<K, V> {
     final K key;
     V value;
@@ -30,21 +56,6 @@ public final class LRUCache_w_HashMap_Doubly_Linked_List<K, V> {
       this.value = value;
       this.expiresAtMillis = expiresAtMillis;
     }
-  }
-
-  private final int capacity;
-  private final Map<K, Node<K, V>> map;
-  private final ReentrantLock lock = new ReentrantLock();
-
-  private final Node<K, V> head = new Node<>(null, null, NO_EXPIRY);
-  private final Node<K, V> tail = new Node<>(null, null, NO_EXPIRY);
-
-  public LRUCache_w_HashMap_Doubly_Linked_List(int capacity) {
-    if (capacity < 0) throw new IllegalArgumentException("capacity must be >= 0");
-    this.capacity = capacity;
-    this.map = new HashMap<>(Math.max(16, capacity * 2));
-    head.next = tail;
-    tail.prev = head;
   }
 
   public void put(K key, V value) { put(key, value, 0L); }

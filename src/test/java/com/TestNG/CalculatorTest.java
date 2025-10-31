@@ -1,6 +1,6 @@
 package com.TestNG;
 
-import com.c1.Calculator;
+import com.c0.aisera_keeper.Calculator;
 import org.testng.Assert;
 import org.testng.annotations.*;
 

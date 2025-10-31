@@ -13,6 +13,13 @@ but does not override the method will get the default implementation.
 If your custom class doesn’t implement Iterable<T>, Java doesn’t know how to “iterate” over it.
 That means you don’t get the spliterator() method or the for-each loop capability — and definitely not stream().
 Then you’d have to call: myList.getData().stream()
+
+Although not strictly related to default methods, the ability to add static methods to interfaces is a
+similar change, added in Java 8.
+public static<T> Stream<T> of(T... values) {
+     return Arrays.stream(values);
+ }
+
  */
 public class _Default_extending_Iterable {
 

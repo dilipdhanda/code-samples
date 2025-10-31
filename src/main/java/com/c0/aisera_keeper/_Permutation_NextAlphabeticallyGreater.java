@@ -1,8 +1,8 @@
-package com.c7.a2;
+package com.c0.aisera_keeper;
 
 import java.io.*;
 
-public class NextAlphabeticallyGreaterPermutation { // WorkDay Liu - 05/16/24
+public class _Permutation_NextAlphabeticallyGreater { // WorkDay Liu - 05/16/24
     public static void main(String[] args) throws IOException {
         String word = "abdc";
         word = "hefg"; // WorkDay Liu - 05/16/24
@@ -69,7 +69,7 @@ public class NextAlphabeticallyGreaterPermutation { // WorkDay Liu - 05/16/24
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Enter a String: ");
         String word = bufferedReader.readLine();
-        String result = NextAlphabeticallyGreaterPermutation.getNextPermutation(word);
+        String result = _Permutation_NextAlphabeticallyGreater.getNextPermutation(word);
         bufferedReader.close();
         return result;
     }
