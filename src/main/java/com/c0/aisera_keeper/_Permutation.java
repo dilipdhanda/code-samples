@@ -21,7 +21,7 @@ Complexity O(P(n, r)) = O(n! / ((n−r)!))
 public class _Permutation {
     public static void main(String[] args) {
 
-        System.out.printf(getIntPermutations(new int[]{6, 7, 8}, 2).toString());
+        System.out.printf(getIntPermutations(new int[]{6, 7, 8, 9}, 2).toString());
 
         if (1==2) System.out.println(getStringPermutations("abc").toString());
     }
@@ -38,8 +38,9 @@ public class _Permutation {
             return;
         }
         for (int i = 0; i < nums.length; i++) {
-            if (used[i]) continue;
-            used[i] = true;
+            if (used[i]) continue; // this check skips the current number in ALL recursive calls below for say 7
+            used[i] = true; // this makes sure we do not reuse current recursive call below
+            // e.g. for 7 in {6,7,8,9} used[] will become (F,T,F,F) when we pick or start for 7
             currPermutation.add(nums[i]);
             permute(nums, r, used, currPermutation, resultList);
             // Backtrack Step (two lines below) - i may not be 0 in this Backtrack steps
@@ -47,6 +48,8 @@ public class _Permutation {
             // Remember i starts with 0 only in permute recursive call, as it's a new function call
             currPermutation.remove(currPermutation.size() - 1);
             used[i] = false;
+            // for 7, it will make 6 T, then backtrack to make it F, then do the same for 8,9
+            // After 7 is done, and we do the same for 8, 9
         }
     }
 
