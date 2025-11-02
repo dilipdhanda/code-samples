@@ -49,7 +49,7 @@ java.util.concurrent
       ├── Executors, ThreadPoolExecutor
       ├── BlockingQueue (ArrayBlockingQueue, LinkedBlockingQueue, etc.)
       ├── ConcurrentHashMap, CopyOnWriteArrayList
-      └── Synchronizers (CountDownLatch, Semaphore, Phaser)
+      └── Synchronizers (CountDownLatch, Semaphore, Phas
  */
 public class _Locks {
 }
